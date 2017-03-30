@@ -11,14 +11,14 @@ Cloudant = require('cloudant');
 module.exports = (robot) ->
   cloudant = null;
   if (process.env.HUBOT_CLOUDANT_VCAP_INSTANCE_NAME
-    cloudant = Cloudant({instanceName: process.env.HUBOT_CLOUDANT_VCAP_INSTANCE_NAME, vcapServices: JSON.parse(process.env.VCAP_SERVICES)}, function (er, cloudant, reply) {
+    cloudant = Cloudant({instanceName: process.env.HUBOT_CLOUDANT_VCAP_INSTANCE_NAME, vcapServices: JSON.parse(process.env.VCAP_SERVICES)}, (er, cloudant, reply) {
       if (er)
         throw er;
       console.log('Connected with vcapServices: %s', reply.userCtx.name);
       getData();
     })
   else if (process.env.HUBOT_CLOUDANT_URL)
-    cloudant = Cloudant({url: process.env.HUBOT_CLOUDANT_URL}, function(er, cloudant, reply) {
+    cloudant = Cloudant({url: process.env.HUBOT_CLOUDANT_URL}, (er, cloudant, reply) {
       if (er)
         throw er;
       console.log('Connected with username: %s', reply.userCtx.name);

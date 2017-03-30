@@ -1,6 +1,6 @@
 {
   "name": "hubot-cloudant-brain",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A hubot script to persist hubot's brain using cloudant",
   "main": "index.coffee",
   "scripts": {
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/andrewmccall/hipchat-cloudant-brain/issues"
   },
-  "homepage": "https://github.com/andrewmccall/hipchat-cloudant-brain#readme"
+  "homepage": "https://github.com/andrewmccall/hipchat-cloudant-brain#readme",
+  "dependencies": {
+    "cloudant": "^1.7.1"
+  }
 }
