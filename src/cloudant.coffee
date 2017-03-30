@@ -6,11 +6,10 @@
 # Set a url
 #   Set the environment variable HUBOT_CLOUDANT_URL to a cloudant URL.
 #
-
-var Cloudant = require('cloudant');
+Cloudant = require('cloudant');
 
 module.exports = (robot) ->
-  var cloudant = null;
+  cloudant = null;
   if (process.env.HUBOT_CLOUDANT_VCAP_INSTANCE_NAME
     cloudant = Cloudant({instanceName: process.env.HUBOT_CLOUDANT_VCAP_INSTANCE_NAME, vcapServices: JSON.parse(process.env.VCAP_SERVICES)}, function (er, cloudant, reply) {
       if (er)
