@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/andrewmccall/hipchat-cloudant-brain#readme",
   "dependencies": {
-    "cloudant": "^1.7.1"
+    "cloudant": "^1.7.1",
+    "object-hash" : "1.1.7"
   }
 }
