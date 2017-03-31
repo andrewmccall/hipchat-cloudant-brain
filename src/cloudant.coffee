@@ -79,7 +79,7 @@ module.exports = (robot) ->
         else if reply
           robot.logger.info "hubot-cloudant-brain: Data for #{prefix} brain retrieved from Cloudant"
           robot.brain.mergeData reply.brain ? {}
-          hash = reply.hash
+          currentHash = reply.hash
         robot.brain.setAutoSave true
 
   robot.brain.on 'save', (data = {}) ->
