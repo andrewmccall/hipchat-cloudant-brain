@@ -21,13 +21,12 @@ module.exports = (robot) ->
   dbName = process.env.HUBOT_CLOUDANT_DATABASE ? "hubot"
   if (process.env.VCAP_SERVICES)
 
-    vcap = JSON.parse(process.env.VCAP_SERVICES)
-    robot.logger.debug 'VCAP: %s', JSON.stringify(process.env.VCAP_SERVICES)
+    vcap = JSON.parse(process.env.VCAP_SERVICES)=
     if not vcap.cloudantNoSQLDB
       if vcap["cloudantNoSQLDB Dedicated"]
         vcap.cloudantNoSQLDB = vcap["cloudantNoSQLDB Dedicated"]
 
-    robot.logger.debug 'VCAP: %s', JSON.stringify(process.env.VCAP_SERVICES)
+    robot.logger.debug 'VCAP: %s', vcap
 
     instanceName = null
     if process.env.HUBOT_CLOUDANT_VCAP_INSTANCE_NAME
@@ -92,8 +91,8 @@ module.exports = (robot) ->
             throw err
         db.insert {_rev: reply.rev, brain: data, hash: hash}, "#{prefix}:hubot", (er, body, header) ->
             if er
-              robot.logger.info 'Brain save failed.', err.message
+              robot.logger.info 'Brain save failed.', er.message
             else
               robot.logger.debug 'Brain saved. %s', JSON.stringify body
     else
-      logger.debug "No change to data, ignored save."
+      robot.logger.debug "No change to data, ignored save."
