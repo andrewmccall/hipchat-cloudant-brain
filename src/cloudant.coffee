@@ -21,7 +21,7 @@ module.exports = (robot) ->
   dbName = process.env.HUBOT_CLOUDANT_DATABASE ? "hubot"
   if (process.env.VCAP_SERVICES)
 
-    vcap = JSON.parse(process.env.VCAP_SERVICES)=
+    vcap = JSON.parse(process.env.VCAP_SERVICES)
     if not vcap.cloudantNoSQLDB
       if vcap["cloudantNoSQLDB Dedicated"]
         vcap.cloudantNoSQLDB = vcap["cloudantNoSQLDB Dedicated"]
@@ -82,7 +82,7 @@ module.exports = (robot) ->
         robot.brain.setAutoSave true
 
   robot.brain.on 'save', (data = {}) ->
-    dataHash = hash(data);
+    dataHash = hash(data)
     if not (dataHash is currentHash)
       currentHash = dataHash
       db.get "#{prefix}:hubot", (err, reply) ->

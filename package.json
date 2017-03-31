@@ -1,6 +1,6 @@
 {
   "name": "hubot-cloudant-brain",
-  "version": "0.0.4-2",
+  "version": "0.0.4-3",
   "description": "A hubot script to persist hubot's brain using cloudant",
   "main": "index.coffee",
   "scripts": {
